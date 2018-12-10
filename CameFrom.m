@@ -66,9 +66,9 @@ classdef CameFrom < handle
         
         
         function [xfrom, yfrom] = Get(obj, x, y)
-            % Finds the cost so far associated with a node [x y]
+            % Finds the node from which [x y] came
             i = obj.FindElement(x, y);
-            out = obj.Get(x,y);
+            out = obj.camefrom(:,i);
             xfrom = out(1); 
             yfrom = out(2);
             

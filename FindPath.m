@@ -3,11 +3,13 @@ function path = FindPath(goal,CameFrom)
 %   Once matrix implementation of A* has finished, call this function to
 %   return the optimal path
 
-path = goal;
+path = zeros(2,20);
 current = goal;
+index = 1;
 
-while current ~= [0 0]'
-    current = CameFrom.Get(current(1), current(2));
-    path = [path, current];
+while current(1) ~= 0 && current(2) ~= 0
+    path(:,index) = current;
+    [current(1), current(2)] = CameFrom.Get(current(1), current(2));
+    index = index + 1;
 end
 

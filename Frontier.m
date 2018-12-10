@@ -57,7 +57,7 @@ classdef Frontier < handle
             
             obj.coordinates(3,i) = priority;
             transpose = (obj.coordinates)';                 % Intermediate transposed version of coordinates matrix
-            transpose(1:i,:) = sortrows(transpose(1:i,:),3,'descend');      % Sort Frontier by priority entries
+            transpose(1:i,:) = sortrows(transpose(1:i,:),3,'ascend');      % Sort Frontier by priority entries
             obj.coordinates = transpose';
         end
         
