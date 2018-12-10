@@ -1,13 +1,14 @@
 clear all
-n = 8;
-goal = [5, 5]';
+n = 50;
+start = [2; 2];
+goal = [25; 25];
 visitedmatrix = zeros(n);
 
 frontier = Frontier(2,2,n);
 camefrom = CameFrom(n);
 camefrom.Put(2,2,0,0);
 costsofar = CostSoFar(n);
-costsofar.Put(2,2,0);
+costsofar.Put(start(1),start(2),0);
 
 while frontier.Empty ~= 1
     
@@ -31,13 +32,11 @@ while frontier.Empty ~= 1
         end
     end
     
-    visitedmatrix = VisitedMatrix(visitedmatrix, [current1; current2]);
-    visitedmatrix = visitedmatrix
+    visitedmatrix = UpdateVisitedMatrix(visitedmatrix, [current1; current2]);
+
 
 end
 
-path = FindPath(goal, camefrom);
-path = path
-
-pathmatrix = PathMatrix(path,n);
-pathmatrix = pathmatrix
+path = FindPath(goal, camefrom, n);
+PlotPath(path,start,goal,n)
+PlotVisited(visitedmatrix)

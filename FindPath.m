@@ -1,9 +1,9 @@
-function path = FindPath(goal,CameFrom)
+function path = FindPath(goal,CameFrom,n)
 %FINDPATH Returns the quickest path after implementation of A* algorithm
 %   Once matrix implementation of A* has finished, call this function to
 %   return the optimal path
 
-path = zeros(2,20);
+path = zeros(2,10*n);
 current = goal;
 index = 1;
 
