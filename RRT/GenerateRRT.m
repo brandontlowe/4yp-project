@@ -12,9 +12,9 @@ function tree = GenerateRRT(xinit, K, n)
     
     for k = 1:K
         xrand = RandomState(n);
-        xnear = NearestNeighbour(xrand, t);
-        tree.addnode(tablexrand'); % CREATE ADDRRTNODE FUNCTION - MUST CONVERT VECTOR INTO A TABLE FOR LAST BIT TO WORK
-        tree.addedge(xrand',xnear',GetDistance(xrand,xnear));
+        xnear = NearestNeighbour(tree, xrand);
+        tree = AddRRTNode(tree, xrand);
+        tree = AddRRTEdge(tree, xrand, xnear);
     end
 end
 
