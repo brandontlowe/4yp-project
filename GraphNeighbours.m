@@ -1,4 +1,4 @@
-function neighbours = GraphNeighbours(x, y)
+function neighbours = GraphNeighbours(x, y, n)
 %GraphNeighbours Returns positions of elements adjacent to [x
 %y]'
      %   The four nodes neighbouring that at position [x, y] are
@@ -8,13 +8,15 @@ function neighbours = GraphNeighbours(x, y)
             
             neighbours = zeros(2,4);
             
+            if x ~= 0 && y ~= 0
+            
             i = 1;                            % Set index to 1
             if x ~= 1
                 neighbours(1,i) = x - 1;
                 neighbours(2,i) = y;
                 i = i + 1;                    % Increment index
             end
-            if x ~= 64
+            if x ~= n
                 neighbours(1,i) = x + 1;
                 neighbours(2,i) = y;
                 i = i + 1;                    % Increment index
@@ -24,8 +26,9 @@ function neighbours = GraphNeighbours(x, y)
                 neighbours(2,i) = y - 1;
                 i = i + 1;                     % Increment index
             end
-            if y ~= 64
+            if y ~= n
                 neighbours(1,i) = x;
                 neighbours(2,i) = y + 1;
             end
+            end 
 end

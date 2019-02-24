@@ -71,7 +71,7 @@ classdef Frontier < handle
         end
         function empty = Empty(obj)
             % Returns 1 if frontier is empty, else returns 0
-            if Frontier == zeros(3,obj.n)
+            if obj.coordinates == zeros(3,(obj.n)^2)
                 empty = 1;
             else
                 empty = 0;

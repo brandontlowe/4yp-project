@@ -1,0 +1,1 @@
+g = GenerateRRTandPlot([500;500;pi;0.2],35,1000);

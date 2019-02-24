@@ -6,7 +6,7 @@ function matrix = PathMatrix(path,start,goal,n)
 matrix = zeros(n);
 
     for i = 1:length(find(path(1,:)))
-        if (path(1,i) ~= start(1) || path(1,i) ~= start(2)) && (path(1,i) ~= goal(1) || path(2,i) ~= goal(2))
+        if (path(1,i) ~= start(1) || path(2,i) ~= start(2)) && (path(1,i) ~= goal(1) || path(2,i) ~= goal(2))
             matrix(path(1,i), path(2,i)) = 1;
         else
             if path(1,i) == start(1) && path(2,i) == start(2)
